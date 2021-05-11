@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script src="https://kit.fontawesome.com/b6929290b2.js" crossorigin="anonymous"></script>
+</head>
+<body class="dark-mood">
+  
+<!-- -----------------------------------------------------header----------------------------------------------------------------->
+   <header>
+    
+                    <h1 class="titulo">Generador de Memes</h1>
+                    <div class="botonesHeader">
+                            <button class="imagen"><i class="fas fa-font"></i>Imagen</button>
+                            <button class="texto">Texto</button>
+                            <button class="dark-mood light-mood" id="botonModo"><span id="textInfo">Modo oscuro</span> </button>
+                    </div>
+      
+   </header>
+<!-- -----------------------------------------------------Main----------------------------------------------------------------->
+    <main>
+        <div class="container">
+            <div class="topText">Top Text</div>
+            <div class="memeImagen" id="imagenMeme">imagen</div>
+            <div class="bottomText">Botton Text</div>
+        </div>
+
+        <div>
+            <button class="descargar">Descargar meme</button>
+        </div>
+    </main>
+    <!-- -----------------------------------------------aside imagen------------------------------------------------->
+    
+<aside >
+    <section class="section-aside-img ocultar"  >
+        <h1>IMAGEN</h1>
+        <label for="">URL</label>
+        <input type="text">
+
+
+        <H2> <STRONG>FONDO</STRONG></H2>
+
+        <div class="colorFondo">
+            <input aria-label="Color de fondo de imagen" type="color" id="mezclador" value="#FFFFFF">
+            <select aria-label="Modo de mezcla de fondo de imagen" id="blend-mode-select" class="panel-control-input">
+                <option value="unset">Ninguno</option>
+                <option value="lighten">Aclarar</option>
+                <option value="darken">Oscurecer</option>
+                <option value="difference">Diferencia</option>
+                <option value="luminosity">Luminosidad</option>
+                <option value="multiply">Multiplicar</option>
+               
+            </select>
+        </div>
+
+
+        <div class="filtros">
+            
+                <H2> <STRONG>FILTROS</STRONG></H2>
+              <div>      
+                    <label for="">BRILLO</label>
+                    <input type="range">
+            </div>
+            <div>
+                    <label for="">OPACIDAD</label>
+                    <input type="range">
+        </div>
+        <div>
+                    <label for="">CONTRASTE</label>
+                    <input type="range">
+        </div>
+        <div>
+                    <label for="">DESENFOQUE</label>
+                    <input type="range">
+        </div>
+        <div>
+                    <label for="">ESCALA DE GRISES</label>
+                    <input type="range">
+        </div>
+        <div>
+                    <label for="">SEPIA</label>
+                    <input type="range">
+        </div>
+        <div>
+                    <label for="">HUE</label>
+                    <input type="range">
+        </div>
+        <div>
+                    <label for="">SATURADO</label>
+                    <input type="range">
+        </div>
+        <div>
+                    <label for="">NEGATIVO</label>
+                 <input type="range"> 
+        </div>  
+    </div>
+
+                     <button>Reestablecer filtros</button>
+   
+     </section>
+     <!----------------------aside texto------------------------------------------------------------------------------------->
+     
+     
+     <section class="section-aside-text " >
+            <div class="textoSuperior">
+                <label for="">Superior</label>
+                <textarea name="" id="topText" cols="30" rows="10">Top Text</textarea>
+                <input type="checkbox">
+            </div>
+            <div class="textoInferior">
+                <label for="">Superior</label>
+                <textarea name="" id="bottonText" cols="30" rows="10">Botton Text</textarea>
+                <input type="checkbox">
+            </div>
+            <div class="fuente">
+                <select name="Familia de fuente" id="text-font-select" class="panel-control-input" aria-label="Familia de fuente">
+                    <option value="Arial">Arial</option>
+                    <option value="Arial Black">Arial Black</option>
+                    <option value="American Typewriter">American Typewriter</option>
+                    <option value="Andale Mono">Andale Mono</option>
+                    <option value="Comic Sans MS">Comic Sans MS</option>
+                    <option value="Helvetica">Helvetica</option>
+                    <option value="Impact" selected="">Impact</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                  </select>
+                  <div class="flex-container">
+                    <!-- 
+                      Tamaño
+                    -->
+                    <input type="number" name="Tamaño de fuente" aria-label="Tamaño de fuente" class="panel-control-input" id="text-size-input" min="12" value="40">
+                    <!-- 
+                      Alineaci´ón
+                    -->
+                    <div class="buttons-container buttons-alignment">
+                      <button class="button button-default" id="text-left-align-button" aria-label="Alinear texto a la izquierda"><i class="fas fa-align-left" aria-hidden="true"></i></button>
+                      <button class="button button-default" id="text-center-align-button" aria-label="Alinear texto al centro"><i class="fas fa-align-center" aria-hidden="true"></i></button>
+                      <button class="button button-default" id="text-right-align-button" aria-label="Alineat texto a la derecha"><i class="fas fa-align-right" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+            </div>
+            <div class="panel-control">
+                <div class="panel-control-columns">
+                  <!-- 
+                    Color de texto
+                   -->
+                  <div class="panel-control panel-control-column">
+                    <h3 class="panel-control-title">COLOR</h3>
+                    <div class="panel-control-color">
+                      <input name="Color de texto" type="color" id="text-color-input" value="#000000" aria-label="Color de texto">
+                      <span id="text-color" aria-hidden="true">#000000</span>
+                    </div>
+                  </div>
+                  <!-- 
+                    Color de fondo
+                   -->
+                  <div class="panel-control panel-control-column">
+                    <h3 class="panel-control-title">FONDO</h3>
+                    <div class="panel-control-color">
+                      <input name="Color de fondo de texto" type="color" id="text-background-color-input" value="#FFFFFF" aria-label="Color de fondo de texto">
+                      <span id="text-background-color" aria-hidden="true">#FFFFFF</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex-container panel-control-checkbox">
+                  <input type="checkbox" id="text-no-background-checkbox"><label for="text-no-background-checkbox">Fondo
+                    transparente</label>
+                </div>
+              </div>
+
+                <!--Contorno-->
+              <div class="panel-control">
+                <h3 class="panel-control-title">CONTORNO</h3>
+                <div class="buttons-container">
+                  <button class="button button-default" id="no-outline-button">Ninguno</button>
+                  <button class="button button-default" id="light-outline-button">Claro</button>
+                  <button class="button button-default" id="dark-outline-button">Oscuro</button>
+                </div>
+              </div>
+
+
+                    <!--Espaciado-->
+              <div class="panel-control">
+                <h3 class="panel-control-title">ESPACIADO</h3>
+                <input type="number" id="padding-input" class="panel-control-input" aria-label="Espaciado" min="10" max="50" value="35">
+              </div>
+
+
+              <!--Interlineado-->
+              <div class="panel-control">
+                <h3 class="panel-control-title">INTERLINEADO</h3>
+                <select id="line-height-input" class="panel-control-input" aria-label="Interlineado">
+                  <option value="0.8">0.8</option>
+                  <option value="1">1</option>
+                  <option value="1.2" selected="">1.2</option>
+                  <option value="1.5">1.5</option>
+                  <option value="2">2</option>
+                  <option value="2.5">2.5</option>
+                </select>
+              </div>
+
+     </section>
+ </aside>
+  <!-- ---------------------------------------script---------------------------------------------------------->
+  <script src="app.js"> </script>
+</body>
+</html>

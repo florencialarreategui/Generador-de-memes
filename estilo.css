@@ -1,0 +1,175 @@
+/*paddin or margin: em 
+font size: rem
+width : porcentaje*/
+
+*{
+    margin: 0;
+    box-sizing: content-box;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+}
+
+
+
+
+/* --------------------------header---------------------------------------------------*/
+header{
+    width: 100%;
+    height: 20%;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--fondoHeader);
+    color: var(--colorLetra)
+
+ 
+}
+.titulo{
+    font-size: 2em;
+   
+  
+}
+
+/*-------------------Botones header---------------------*/
+
+.botonesheader{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+}
+
+
+
+
+
+button{
+   
+}
+
+/* ---------------------------------------MAIN---------------------------*/
+main{
+    background-color: var(--fondoMain);
+   width: 100%;
+    height: 37rem ;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+   }
+
+  .container{
+         width: 40%;
+         height: 80%;
+        display: flex;
+        justify-content: center;
+         flex-direction: column;
+         align-items:center;
+        margin-bottom: 2%;
+        }
+
+
+ .topText{
+
+      height: 10%;
+        width: 100%;
+        background-color: white;
+        font-size: 3rem;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-weight: bolder;
+        justify-content: center;
+        text-align: center;
+        padding-top: 5%;
+        padding-bottom: 5%;
+
+     }
+
+ .memeImagen{
+         width: 100%;
+        height: 90%;
+        background-color: black;
+ }
+
+.bottomText{
+
+    height: 10%;
+    width: 100%;
+    background-color: white;
+    font-size: 3rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bolder;
+    justify-content: center;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+     /*------------------ Boton main-----------------------*/
+
+     .descargar{
+         background-color:#2e7d32;
+         padding: 2%;
+         color: white;
+     }
+  /* ----------------------------------ASIDE-----------------------*/
+aside{
+        background-color: var(--aside);
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        color: #fff;
+        width: 15%;
+        height: 100%;      
+}
+.section-aside{
+ 
+    height: 100%;
+    justify-content: space-between;
+    
+}
+
+.colorFondo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.filtros{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.panel-control-input {
+    width: 100%;
+    height: 36px;
+    background-color: var(--color-boton-default);
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+}
+
+.ocultar {
+    display: none;
+  }
+  /*---------------------MODO OSCURO/CLARO----------------*/
+  .dark-mood {
+    --fondoHeader: #191e2b;
+    --fondoMain: #393e49;;
+    --colorLetra:rgb(220, 237, 255);
+    --aside:#252935 ;
+   
+  }
+
+  .ligth-mood {
+    --fondoHeader: #E0E0E0;
+    --fondoMain: #FAFAFA;
+    --colorLetra: #424242;
+    --aside: #ffff;
+  
+  }

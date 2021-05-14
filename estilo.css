@@ -1,6 +1,10 @@
 /*paddin or margin: em 
 font size: rem
-width : porcentaje*/
+width : porcentaje
+no funciona la configuracion de los inputs ni selec
+interlineado
+checkbox
+contorno funciona pero no vuelve para atras*/
 
 *{
     margin: 0;
@@ -9,10 +13,7 @@ width : porcentaje*/
     font-size: 1rem;
 }
 
-
-
-
-/* --------------------------header---------------------------------------------------*/
+/* -------------------------HEADER---------------------------------------------------*/
 header{
     width: 100%;
     height: 20%;
@@ -25,12 +26,11 @@ header{
     background-color: var(--fondoHeader);
     color: var(--colorLetra)
 
- 
 }
+
 .titulo{
-    font-size: 2em;
-   
-  
+    font-size: 2.5Rem;  
+    margin-bottom: 1%;
 }
 
 /*-------------------Botones header---------------------*/
@@ -43,10 +43,12 @@ header{
     flex-direction: row
 
 }
+
 .botonHeader{
     background-color: var(--fondoHeader);
     transition: background-color 0.2s
 }
+
 .botonHeader:hover{
     background-color:var(--colorHover);
 }
@@ -59,18 +61,21 @@ button{
     cursor: pointer;
     transition: 0.2s;
     height: 1.7em;
+    margin: 2px;
    
 }
+
 button:hover{
     background-color: var(--colorHover);
 }
+
 i{
     margin: 7px;
 }
 /* ---------------------------------------MAIN---------------------------*/
 main{
     background-color: var(--fondoMain);
-   width: 100%;
+     width: 100%;
     height: 37rem ;
     display: flex;
     align-items: center;
@@ -78,68 +83,61 @@ main{
    }
 
   .container{
-         width: 40%;
-         height: 80%;
+        width: 40%;
+        height: 80%;
         display: flex;
         justify-content: center;
-         flex-direction: column;
-         align-items:center;
+        flex-direction: column;
+        align-items:center;
         margin-bottom: 3%;
         }
         
    .cajaTexto{
       
        width: 100%;
+   
    }
 
- #textoInferior{
-
-      
-        width: 100%;
-        background-color: white;
-        font-size: 3em;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        font-weight: bolder;
-        justify-content: center;
-        text-align: center;
-        padding-top: 5%;
-        padding-bottom: 5%;
-
-     }
-
+/* -------------------------contenedor de la imagen------------------------*/
  .memeImagen{
          width: 100%;
         height: 90%;
         background-color: black;
  }
 
-#textoSuperior{
-
-   
+ /* --------------------------caja -texto --------------------------*/
+.cajaTexto{
     width: 100%;
+    height: 20%;
     background-color: white;
-    font-size: 3rem;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: bolder;
     justify-content: center;
     text-align: center;
     padding-top: 5%;
     padding-bottom: 5%;
 }
-
+.parrafo{
+    font-size: 3rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bolder;
+}
      /*------------------ Boton main-----------------------*/
 
      .descargar{
          background-color:#2e7d32;
-         padding: 2%;
          color: white;
+         height: 3em;
      }
      .descargar:hover{
         background-color:#105813;
-        padding: 2%;
-        color: white;
+       
     }
-  /* ----------------------------------ASIDE-----------------------*/
+    #botonDescargarText{
+        width: 100%;
+        height: 100%;
+        font-size: 1rem;
+       
+    }
+  /* ----------------------------------ASIDE------------------------------------------*/
 aside{
         background-color: var(--aside);
         position: fixed;
@@ -156,11 +154,18 @@ aside{
         flex-direction: column;
         padding: 1%;
 }
+#botonCerrar{
+    border: none;
+    background-color: var (var(--aside));
+    color: var(--colorLetra);
+    cursor: pointer;
+}
 h2{
     display: flex;
     justify-content: center;
     font-size: 1.2em;
     font-weight:bolder;
+    margin-bottom: 3%;
 }
 .inputDivs{
     background-color: var(--fondoMain);
@@ -168,34 +173,43 @@ h2{
     border-radius: 3px;
     color: var(--colorLetra);
     height: 1.7em;
+    width: 100%;
     padding: 0.3em;
     cursor: pointer;
     transition: 0.2s;
+    margin: 2px;
+    
 }
 .inputDivs:hover{
     background-color:var(--colorHover);
    
 }
+
 .mezcladores{
     border: none;
     border-radius: 150px;
 }
-/*----------------aside texto-------------------*/
-/*----------------ingresar texto-------------------
+H3{
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+label{
+    margin-bottom: 2%;
+    margin-top: 4%;
+    font-size: 0.8rem;
+}
+/*---------------------------------------------ASIDE TEXTO----------------------------*/
+/*----------------ingresar texto-------------------*/
 .section-aside-text{
     display: flex;
-    padding: 8%;
     flex-direction: column;
-     
-}*/
- 
-
-
+    justify-content: space-evenly; 
+}
  .ingresarTexto{
      width: 100%;
      height: 60%;
-     display: flex;
-     justify-content: space-between;
+     
+  
  }
 /*----------------checkbox-------------------*/
 .checkbox{
@@ -212,9 +226,18 @@ h2{
     display: flex;
     flex-direction: row;
 }
+/*----------------tamaño e interlineado-------------------*/
+.flex-container{
+    display: flex;
+    flex-direction: row;
 
+}
+.button-default{
+    margin: 1px;
+}
 
-/*----------------color-------------------*/
+}
+/*----------------color-fondo------------------*/
 
 .panel-control-columns{
     display: flex;
@@ -225,21 +248,42 @@ h2{
     display: flex;
     justify-content: space-between;
 }
+/*----------------contorno-----------------*/
+.sinContorno{
+    text-shadow: none;
 
-/*----------------aside imagen-------------------
+}
+.contornoClaro{
+    text-shadow: rgb(255, 255, 255) 2px 2px, rgb(255, 255, 255) -2px 2px, rgb(255, 255, 255) 2px -2px, rgb(255, 255, 255) -2px -2px;
+
+}
+
+.contornoOscuro{
+    text-shadow: rgb(0 0 0) 2px 2px, rgb(0 0 0) -2px 2px, rgb(0 0 0) 2px -2px, rgb(0 0 0) -2px -2px;
+}
+/*---------------------------------ASIDE IMAGEN -----------------------------------*/
 .section-aside-img{
  
-    height: 100%;
-    padding: 8%;
-    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
     
-}*/
+}
     
 /*----------------color fondo-------------------*/
 .colorFondo{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+}
+.cajaColorImg{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+}
+#blend-mode-select{
+    width: 50%;
 }
 /*----------------filtros-------------------*/
 .filtros{
@@ -247,12 +291,13 @@ h2{
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    
 }
 .cajaFiltro{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-bottom: 4%;
 }
 .panel-control-input {
     width: 100%;
@@ -263,15 +308,35 @@ h2{
     padding: 5px 10px;
     margin-bottom: 5px;
 }
+
 input[type='range'] {
-    width: 100%;
+    width: 90%;
     background-color: #5a5d68;
     border-radius: 10px;
     appearance: none;
     height: 6px;
-    margin-top: 10px;
+    margin-top: 2%;
     color: var(--colorLetra);
 }
+input[type='range']:focus{
+    background-color:gray;
+}
+
+/*----------------INPUT RANGOS-------------------*/
+input[type="range"]::-webkit-slider-thumb{ 
+    -webkit-appearance: none; 
+    height: 16px;
+     width: 16px; 
+     border-radius: 25px;
+      background: var(--colorLetra);
+       cursor: pointer;
+    }
+
+/*----------------boton reestablecer filtros------------------*/
+    #reestablecerFiltros{
+        height: 2em;
+
+    }
 
 
 /* --------------------ocultar------------------------------------*/
@@ -279,13 +344,11 @@ input[type='range'] {
     display: none;
   }
 
-
-
-  /*-------------- #E0E0E0-------MODO OSCURO/CLARO----------------*/
+  /*-------------------MODO OSCURO/CLARO----------------*/
   .dark-mood {
     --fondoHeader: #191e2b;
     --fondoMain: #393e49;;
-    --colorLetra:rgb(220, 237, 255);
+    --colorLetra:white;
     --aside:#252935 ;
     --fondoInput:#393e49;
     --colorHover: #4E5565
@@ -298,7 +361,7 @@ input[type='range'] {
     --colorLetra: #424242;
     --aside: #ffff;
     --fondoInput:#EEEEEE;
-    --colorHover:
+    --colorHover:gray
   
   }
 
@@ -307,4 +370,23 @@ input[type='range'] {
   }
   
     
+@media (max-width: 375px){
+.container{
+    width: 90%;
+    height: 70%;
+    
+}
+.cajaTexto{
+    height: 10%
+}
+
+aside{
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+}
+.titulo{
+    font-size: 1.5rem;
+}
 }

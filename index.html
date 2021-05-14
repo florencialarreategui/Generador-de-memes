@@ -25,37 +25,37 @@
     <main>
         <div class="container">
 
-            <div id="topText" class="cajaTexto">
+            <div id="cajaTopText" class="cajaTexto">
               <p class="parrafo" id="textoSuperior">Top Text</p>
             </div>
 
             <div class="memeImagen" id="imagenMeme">
             </div>
 
-            <div id="bottomText" class="cajaTexto">
+            <div  id="cajaBottomText" class="cajaTexto">
               <p class="parrafo" id="textoInferior">Botton Text</p>
             </div>
 
        </div>
 
         <div>
-            <button class="descargar" id="boton-descarga"><i class="fas fa-file-download"></i>Descargar meme</button>
+            <button class="descargar" id="boton-descarga"><i class="fas fa-file-download"></i><span id="botonDescargarText">Descargar meme</span></button>
         </div>
     </main>
     <!-- -----------------------------------------------aside imagen------------------------------------------------->
     
 <aside >
-  <!--<button class="cerrar button" id="buttonClose"><i class="fas fa-window-close"></i></button>----->
+ <i id="botonCerrar" class="fas fa-window-close cerrar"></i>
     <section class="section-aside-img ocultar"  >
         <h2>IMAGEN</h2>
         <label for="">URL</label>
         <input type="text"  class="inputDivs" id="imgUrl">
 
 
-        <H2> <STRONG>FONDO</STRONG></H2>
+        <H3> <STRONG>FONDO</STRONG></H3>
 
         <div class="colorFondo">
-          <div class="inputDivs">
+          <div class="inputDivs cajaColorImg ">
             <input aria-label="Color de fondo de imagen"  type="color" class="mezcladores" id="mezclador" value="#FFFFFF">
             <span id="text-color-img" aria-hidden="true">#000000</span>
         </div>
@@ -73,7 +73,7 @@
 
         <div class="filtros">
             
-                <H2> <STRONG>FILTROS</STRONG></H2>
+                <H3> <STRONG>FILTROS</STRONG></H3>
               <div class="cajaFiltro">      
                     <label for="">BRILLO</label>
                     <input type="range" class="rango" id="brightness-slider" min="0" max="1" value="1" step="0.1">
@@ -124,14 +124,14 @@
         <h2>TEXTO</h2>
         <div class="ingresar-texto">
             <div class="textoSuperior">
-                <label for="">Texto superior</label>
-                <textarea name=""  class="inputDivs"  id="topText" cols="" rows=""></textarea>
+                <label for=""><H3>SUPERIOR</H3></label>
+                <textarea name=""  class="inputDivs"  id="topText" cols="" rows="">Top Text</textarea>
                <div class="div-checkbox"> <input type="checkbox" class="checkbox" id="checkSuperior"> <p>Sin texto superior</p></div>
             </div>
  <!-----texto  inferior------------------------------------------->
             <div class="textoInferior">
-                <label for="">Texto inferior</label>
-                <textarea name="" class="inputDivs" id="bottomText" cols="30" rows="2">Botton Text</textarea>
+                <label for=""><h3>INFERIOR</h3></label>
+                <textarea name="" class="inputDivs" id="bottomText" cols="" rows="">Botton Text</textarea>
                <div class="div-checkbox"> <input type="checkbox" class="checkbox" id="checkInferior"> <p>Sin texto inferior</p></div>
             </div>
         </div>
@@ -139,7 +139,7 @@
              
 
             <div class="fuente">
-                <select name="Familia de fuente" id="text-font-select" class="panel-control-input inputDivs" aria-label="Familia de fuente">
+                <select name="Familia de fuente" id="text-font-select" class="inputDivs panel-control-input " aria-label="Familia de fuente">
                     <option value="Arial">Arial</option>
                     <option value="Arial Black">Arial Black</option>
                     <option value="American Typewriter">American Typewriter</option>

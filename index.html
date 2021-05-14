@@ -15,38 +15,51 @@
     
                     <h1 class="titulo">Generador de Memes</h1>
                     <div class="botonesHeader">
-                            <button class="imagen"><i class="fas fa-font"></i>Imagen</button>
-                            <button class="texto">Texto</button>
-                            <button class="dark-mood light-mood" id="botonModo"><span id="textInfo">Modo oscuro</span> </button>
+                            <button class="botonHeader imagen"><i class="fas fa-image"></i>Imagen</button>
+                            <button class="botonHeader texto"><i class="fas fa-font"></i>Texto</button>
+                            <button class="botonHeader dark-mood light-mood" id="botonModo"><i class="far fa-lightbulb"></i><span id="textInfo"></i>Modo oscuro</span> </button>
                     </div>
       
    </header>
 <!-- -----------------------------------------------------Main----------------------------------------------------------------->
     <main>
         <div class="container">
-            <div class="topText">Top Text</div>
-            <div class="memeImagen" id="imagenMeme">imagen</div>
-            <div class="bottomText">Botton Text</div>
-        </div>
+
+            <div id="topText" class="cajaTexto">
+              <p class="parrafo" id="textoSuperior">Top Text</p>
+            </div>
+
+            <div class="memeImagen" id="imagenMeme">
+            </div>
+
+            <div id="bottomText" class="cajaTexto">
+              <p class="parrafo" id="textoInferior">Botton Text</p>
+            </div>
+
+       </div>
 
         <div>
-            <button class="descargar">Descargar meme</button>
+            <button class="descargar" id="boton-descarga"><i class="fas fa-file-download"></i>Descargar meme</button>
         </div>
     </main>
     <!-- -----------------------------------------------aside imagen------------------------------------------------->
     
 <aside >
+  <!--<button class="cerrar button" id="buttonClose"><i class="fas fa-window-close"></i></button>----->
     <section class="section-aside-img ocultar"  >
-        <h1>IMAGEN</h1>
+        <h2>IMAGEN</h2>
         <label for="">URL</label>
-        <input type="text">
+        <input type="text"  class="inputDivs" id="imgUrl">
 
 
         <H2> <STRONG>FONDO</STRONG></H2>
 
         <div class="colorFondo">
-            <input aria-label="Color de fondo de imagen" type="color" id="mezclador" value="#FFFFFF">
-            <select aria-label="Modo de mezcla de fondo de imagen" id="blend-mode-select" class="panel-control-input">
+          <div class="inputDivs">
+            <input aria-label="Color de fondo de imagen"  type="color" class="mezcladores" id="mezclador" value="#FFFFFF">
+            <span id="text-color-img" aria-hidden="true">#000000</span>
+        </div>
+            <select aria-label="Modo de mezcla de fondo de imagen" id="blend-mode-select" class="panel-control-input inputDivs">
                 <option value="unset">Ninguno</option>
                 <option value="lighten">Aclarar</option>
                 <option value="darken">Oscurecer</option>
@@ -61,63 +74,72 @@
         <div class="filtros">
             
                 <H2> <STRONG>FILTROS</STRONG></H2>
-              <div>      
+              <div class="cajaFiltro">      
                     <label for="">BRILLO</label>
-                    <input type="range">
+                    <input type="range" class="rango" id="brightness-slider" min="0" max="1" value="1" step="0.1">
             </div>
-            <div>
+            <div class="cajaFiltro">
                     <label for="">OPACIDAD</label>
-                    <input type="range">
+                    <input type="range"class="rango" id="opacity-slider" min="0" max="1" value="1" step="0.1">
         </div>
-        <div>
+        <div class="cajaFiltro">
                     <label for="">CONTRASTE</label>
-                    <input type="range">
+                    <input type="range"class="rango"  id="contrast-slider" min="100" max="1000" value="1" step="1">
         </div>
-        <div>
+        <div class="cajaFiltro">
                     <label for="">DESENFOQUE</label>
-                    <input type="range">
+                    <input type="range" class="rango" id="blur-slider" min="0" max="10" value="0" step="0.1">
         </div>
-        <div>
+        <div class="cajaFiltro">
                     <label for="">ESCALA DE GRISES</label>
-                    <input type="range">
+                    <input type="range" class="rango" id="grayscale-slider" min="0" max="100" value="0" step="1">
         </div>
-        <div>
+        <div class="cajaFiltro">
                     <label for="">SEPIA</label>
-                    <input type="range">
+                    <input type="range" class="rango" id="sepia-slider" min="0" max="100" value="0" step="1">
         </div>
-        <div>
+        <div class="cajaFiltro">
                     <label for="">HUE</label>
-                    <input type="range">
+                    <input type="range" class="rango" id="hue-slider" min="0" max="359" value="0" step="1">
         </div>
-        <div>
+        <div class="cajaFiltro">
                     <label for="">SATURADO</label>
-                    <input type="range">
+                    <input type="range" class="rango" id="saturacion-slider" min="100" max="1000" value="100" step="10">
         </div>
-        <div>
+        <div class="cajaFiltro">
                     <label for="">NEGATIVO</label>
-                 <input type="range"> 
+                 <input type="range" class="rango" id="negativo-slider" min="0" max="1" value="1" step="0.1"> 
         </div>  
     </div>
 
-                     <button>Reestablecer filtros</button>
+                     <button id="reestablecerFiltros">Reestablecer filtros</button>
    
      </section>
      <!----------------------aside texto------------------------------------------------------------------------------------->
      
-     
+     <!-----ingresar texto-->
+      <!-----texto  superior------------------------------------------------->
      <section class="section-aside-text " >
+       
+        <h2>TEXTO</h2>
+        <div class="ingresar-texto">
             <div class="textoSuperior">
-                <label for="">Superior</label>
-                <textarea name="" id="topText" cols="30" rows="10">Top Text</textarea>
-                <input type="checkbox">
+                <label for="">Texto superior</label>
+                <textarea name=""  class="inputDivs"  id="topText" cols="" rows=""></textarea>
+               <div class="div-checkbox"> <input type="checkbox" class="checkbox" id="checkSuperior"> <p>Sin texto superior</p></div>
             </div>
+ <!-----texto  inferior------------------------------------------->
             <div class="textoInferior">
-                <label for="">Superior</label>
-                <textarea name="" id="bottonText" cols="30" rows="10">Botton Text</textarea>
-                <input type="checkbox">
+                <label for="">Texto inferior</label>
+                <textarea name="" class="inputDivs" id="bottomText" cols="30" rows="2">Botton Text</textarea>
+               <div class="div-checkbox"> <input type="checkbox" class="checkbox" id="checkInferior"> <p>Sin texto inferior</p></div>
             </div>
+        </div>
+             <!-----------------fuentes----------------------------------->
+             
+
             <div class="fuente">
-                <select name="Familia de fuente" id="text-font-select" class="panel-control-input" aria-label="Familia de fuente">
+                <select name="Familia de fuente" id="text-font-select" class="panel-control-input inputDivs" aria-label="Familia de fuente">
                     <option value="Arial">Arial</option>
                     <option value="Arial Black">Arial Black</option>
                     <option value="American Typewriter">American Typewriter</option>
@@ -132,26 +154,26 @@
                     <!-- 
                       Tamaño
                     -->
-                    <input type="number" name="Tamaño de fuente" aria-label="Tamaño de fuente" class="panel-control-input" id="text-size-input" min="12" value="40">
+                    <input type="number" name="Tamaño de fuente" aria-label="Tamaño de fuente" class="panel-control-input inputDivs" id="text-size-input" min="12" value="40">
                     <!-- 
                       Alineaci´ón
                     -->
                     <div class="buttons-container buttons-alignment">
-                      <button class="button button-default" id="text-left-align-button" aria-label="Alinear texto a la izquierda"><i class="fas fa-align-left" aria-hidden="true"></i></button>
-                      <button class="button button-default" id="text-center-align-button" aria-label="Alinear texto al centro"><i class="fas fa-align-center" aria-hidden="true"></i></button>
-                      <button class="button button-default" id="text-right-align-button" aria-label="Alineat texto a la derecha"><i class="fas fa-align-right" aria-hidden="true"></i></button>
+                      <button class="button button-default inputDivs" id="text-left-align-button" aria-label="Alinear texto a la izquierda"><i class="fas fa-align-left" aria-hidden="true"></i></button>
+                      <button class="button button-default inputDivs" id="text-center-align-button" aria-label="Alinear texto al centro"><i class="fas fa-align-center" aria-hidden="true"></i></button>
+                      <button class="button button-default inputDivs" id="text-right-align-button" aria-label="Alineat texto a la derecha"><i class="fas fa-align-right" aria-hidden="true"></i></button>
                     </div>
                   </div>
             </div>
             <div class="panel-control">
-                <div class="panel-control-columns">
+                <div class="panel-control-columns divPanelControl">
                   <!-- 
                     Color de texto
                    -->
                   <div class="panel-control panel-control-column">
                     <h3 class="panel-control-title">COLOR</h3>
-                    <div class="panel-control-color">
-                      <input name="Color de texto" type="color" id="text-color-input" value="#000000" aria-label="Color de texto">
+                    <div class="panel-control-color inputDivs">
+                      <input name="Color de texto" type="color" class="mezcladores" id="text-color-input" value="#000000" aria-label="Color de texto">
                       <span id="text-color" aria-hidden="true">#000000</span>
                     </div>
                   </div>
@@ -160,14 +182,14 @@
                    -->
                   <div class="panel-control panel-control-column">
                     <h3 class="panel-control-title">FONDO</h3>
-                    <div class="panel-control-color">
-                      <input name="Color de fondo de texto" type="color" id="text-background-color-input" value="#FFFFFF" aria-label="Color de fondo de texto">
+                    <div class="panel-control-color inputDivs">
+                      <input name="Color de fondo de texto" type="color" class="mezcladores" id="text-background-color-input" value="#FFFFFF" aria-label="Color de fondo de texto">
                       <span id="text-background-color" aria-hidden="true">#FFFFFF</span>
                     </div>
                   </div>
                 </div>
                 <div class="flex-container panel-control-checkbox">
-                  <input type="checkbox" id="text-no-background-checkbox"><label for="text-no-background-checkbox">Fondo
+                  <input type="checkbox" class="checkbox" id="text-no-background-checkbox"><label for="text-no-background-checkbox">Fondo
                     transparente</label>
                 </div>
               </div>
@@ -186,14 +208,14 @@
                     <!--Espaciado-->
               <div class="panel-control">
                 <h3 class="panel-control-title">ESPACIADO</h3>
-                <input type="number" id="padding-input" class="panel-control-input" aria-label="Espaciado" min="10" max="50" value="35">
+                <input type="number" id="padding-input" class="panel-control-input inputDivs" aria-label="Espaciado" min="10" max="50" value="35">
               </div>
 
 
               <!--Interlineado-->
               <div class="panel-control">
                 <h3 class="panel-control-title">INTERLINEADO</h3>
-                <select id="line-height-input" class="panel-control-input" aria-label="Interlineado">
+                <select id="line-height-input" class="panel-control-input inputDivs" aria-label="Interlineado">
                   <option value="0.8">0.8</option>
                   <option value="1">1</option>
                   <option value="1.2" selected="">1.2</option>

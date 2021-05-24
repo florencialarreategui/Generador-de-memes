@@ -6,12 +6,13 @@ const body = document.querySelector('body');
 boton.addEventListener("click",()=>{
     body.classList.toggle("dark-mood");
     body.classList.toggle("ligth-mood");
-    if(textInfo.textContent == "Modo Oscuro"){
-      textInfo.textContent = "Modo Claro";
-    }else{
+    if(textInfo.textContent == "Modo Claro"){
       textInfo.textContent = "Modo Oscuro";
+    }else{
+      textInfo.textContent = "Modo Claro";
     }
 })
+
 //------------------------cambio panel---funciona----------------------------------------
 const botonImg = document.querySelector('.imagen')
    const botonTexto = document.querySelector('.texto')
@@ -31,7 +32,7 @@ const botonImg = document.querySelector('.imagen')
     panelImg.classList.add("ocultar");
     panelText.classList.remove("ocultar")
     });
-    //-----------------------boton para cerrar el panel-------
+    //-----------------------boton para cerrar el panel---funciona----
     const botonCruz = document.querySelector("#botonCerrar");
 
     //cuando hago click en boton de cerrar se cierra el panel de aside
@@ -40,7 +41,7 @@ const botonImg = document.querySelector('.imagen')
         aside.classList.add("ocultar");
     } )
     //---------------------------------------funciones panel Imagen-----------------------------------------------------
-//---------------agregar imagen con url------funciona----ahora no funciona más------------
+//---------------agregar imagen con url------funciona----------------
  // Obtengo el input del html
 const inputImg = document.getElementById("imgUrl");
  // Obtengo la imagen del html
@@ -52,27 +53,27 @@ inputImg.addEventListener("input", ()=>{
   imgMeme.style.backgroundImage = `url('${url}')`
 })
 
-    //-------------cambio del color del fondo no funciona
+    //-------------cambio del color del fondo  funciona
 const color = document.getElementById("mezclador");//llamo al input de color
 const spanColorImg = document.getElementById("text-color-img") //llamo al span nombre del color
 
- color.addEventListener = ("input",() => {
-  imgMeme.style.backgroundColor =`${color.value}`;
-  spanColorImg.textContent = `${color.value}`
+ color.addEventListener ("input",() => {
+  imgMeme.style.backgroundColor = color.value;//cuando necesito escribir texto y mezclarlo con mi variable
+  spanColorImg.textContent = color.value
 })
 
 
-//Select de Efectos de Imagen---------funciona raro
+//Select de Efectos de Imagen---------funciona 
 const blendMode = document.getElementById("blend-mode-select");
 
 blendMode.addEventListener("input", ()=> {
     imgMeme.style.backgroundBlendMode = blendMode.value;
 });
 
-/*
-//---------------------Filtros-----------------------------
+
+//*/---------------------Filtros--funciona---------------------------
  const inputFilter = document.getElementById("imgUrl");
- const imgMemeImagen = document.getElementById("memeImg");
+ 
 
     //sliders
     const brightness = document.getElementById("brightness-slider");
@@ -82,12 +83,12 @@ blendMode.addEventListener("input", ()=> {
     const grayscale = document.getElementById("grayscale-slider");
     const sepia = document.getElementById("sepia-slider");
     const hue = document.getElementById("hue-slider");
-    const saturacion = document.getElementById("saturacion-slider");
-    const negativo = document.getElementById ("negativo-slider");
+    const saturation = document.getElementById("saturacion-slider");
+    const invert = document.getElementById ("negativo-slider");
   
    
    const updateFilter = () => {
-      imgMemeImagen.style.filter = `brightness(${brightness.value}) opacity(${opacity.value}) contrast(${contrast.value}%) blur(${blur.value}px) grayscale(${grayscale.value}%) sepia(${sepia.value}%) hue(${hue.value}deg) saturacion(${saturation.value}%) negativo(${invert.value})` ;
+      imgMeme.style.filter = `brightness(${brightness.value}) opacity(${opacity.value}) contrast(${contrast.value}%) blur(${blur.value}px) grayscale(${grayscale.value}%) sepia(${sepia.value}%) hue-rotate(${hue.value}deg) saturate(${saturation.value}%) invert(${invert.value})` ;
     }
 
     brightness.addEventListener("change",updateFilter);
@@ -104,21 +105,31 @@ blendMode.addEventListener("input", ()=> {
 
     hue.addEventListener("change",updateFilter);
 
-    saturacion.addEventListener("change",updateFilter);
+    saturation.addEventListener("change",updateFilter);
 
-    negativo.addEventListener("change",updateFilter);
+    invert.addEventListener("change",updateFilter);
 
+/* 
+//---------reestablecer filtros-----revisado, no funciona me desabilita el resto de las funciones-----------
+const actualizarFiltros = document.getElementById("reestablecerFiltros")
+const actualizarFiltros = (click, () =>{
+  inputFilter.style.filter = brightness.value="1";
+                              opacity.value="1";
+                              contrast.value="100";
+                              blur.value="1";
+                              grayscale.value="0";
+                              sepia.value="0";
+                              hue.value="0";
+                              saturation.value="100";
+                              invert.value="0";
+                              inputFilter();
+});
 
-//---------reestablecer filtros----------------
-const actualizarFiltros = ()=>{
-  input.style.filter = `brightness(${filtroBrillo.value}) opacity(${opacidad.value}) contrast(${contraste.value}%) blur(${desenfoque.value}px) grayscale(${escalaDeGrises.value}%) sepia(${sepia.value}) hue-rotate(${hue.value}deg) saturate(${saturado.value}%) invert(${negativo.value})`;
-}
 */
-
 //--------------Funciones del panel de texto----------------------------------------------------------------------------------------
 
 
-//-------escribir texto------------
+//-------escribir texto---funciona---------
 const textoArriba = document.getElementById("topText"); //llamo  a los inputs superior e inferior
 const textoAbajo = document.getElementById("bottomText");
 const textoSuperior = document.getElementById("textoSuperior"); //aca llamo a los parrafos superior e inferior
@@ -137,7 +148,6 @@ const cajaTopText = document.getElementById("cajaTopText"); //llamo a los divs
 const cajaBottomText = document.getElementById("cajaBottomText");
 const checkboxSuperior = document.getElementById("checkSuperior"); //llamo a los checkboxs
 const checkboxInferior = document.getElementById("checkInferior");
-
 /*
 checkboxSuperior.addEventListener ("click", ()=>{
   if (checkboxSuperior.checked) {
@@ -154,6 +164,7 @@ checkboxInferior.addEventListener ("click", ()=>{
   else{
     cajaBottomText.classList.remove("ocultar")
   }
+
 
 */
 
@@ -174,7 +185,7 @@ selectTipografias.addEventListener("input", () => {
     textoInferior.style.fontFamily = selectTipografias.value;
 }
 );
-//-----------alineación de texto-----------
+//-----------alineación de texto---no funciona--------
 const textoIzquierda = document.getElementById("text-left-align-button"); //llamo a los botones
 const textoCentrado = document.getElementById("text-center-align-button");
 const textoDerecha = document.getElementById("text-right-align-button");
@@ -209,7 +220,7 @@ colorTexto.addEventListener("input",()=>{
     referenciaColorTexto.textContent = colorTexto.value; //actualiza referencia color del texto en el span
 });
 
-//-------------color fondo de texto-no funciona-----------
+//-------------color fondo de texto---funciona---------
 const colorFondo = document.getElementById("text-background-color-input");//input color
 const referenciaColorFondo = document.getElementById("text-background-color"); //span con nombre del color
 
@@ -219,7 +230,7 @@ colorFondo.addEventListener("input",()=>{
     referenciaColorFondo.textContent = colorFondo.value;//actualiza referencia color de fondo en el span
 });
 
-//---------check box fondo transparente--------------
+//---------check box fondo transparente---lo saca pero no lo pone-----------
 const fondoTransparente = document.getElementById("text-no-background-checkbox");
 
 fondoTransparente.addEventListener("input",()=>{
@@ -228,7 +239,7 @@ fondoTransparente.addEventListener("input",()=>{
 
 });
 
-// ------------contorno-------revisar----------------
+// ------------contorno-------revisar-lo pone pero solo una vez---------------
 
 const ninguno = document.getElementById("no-outline-button");
 const claro = document.getElementById("light-outline-button");
@@ -250,14 +261,14 @@ oscuro.addEventListener("click", ()=>{
 });
 
 
-//---------------espaciado--------------------
+//---------------espaciado----funciona----------------
 const espaciado = document.getElementById("padding-input");
 espaciado.addEventListener ("input", ()=>{
     textoSuperior.style.padding = `${espaciado.value}px`;
     textoInferior.style.padding = `${espaciado.value}px`;
 }
 );
-//----------------interlineado---------------------
+//----------------interlineado-----no funciona----------------
 
 const interlineado = document.getElementById("line-height-input");
 interlineado.addEventListener("input", ()=>{

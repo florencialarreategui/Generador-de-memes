@@ -143,12 +143,12 @@ const textoInferior = document.getElementById("textoInferior");
     textoInferior.innerText = textoAbajo.value;
   });
 
-//-----------check box con o sin texto----no funciona----------------------
-const cajaTopText = document.getElementById("cajaTopText"); //llamo a los divs
+//-----------check box con o sin texto----funciona----------------------
+/**/const cajaTopText = document.getElementById("cajaTopText"); //llamo a los divs
 const cajaBottomText = document.getElementById("cajaBottomText");
 const checkboxSuperior = document.getElementById("checkSuperior"); //llamo a los checkboxs
 const checkboxInferior = document.getElementById("checkInferior");
-/*
+
 checkboxSuperior.addEventListener ("click", ()=>{
   if (checkboxSuperior.checked) {
     cajaTopText.classList.add("ocultar")
@@ -156,6 +156,8 @@ checkboxSuperior.addEventListener ("click", ()=>{
   else{
     cajaTopText.classList.remove("ocultar")
   }
+})
+  
 
 checkboxInferior.addEventListener ("click", ()=>{
   if (checkboxInferior.checked) {
@@ -164,16 +166,15 @@ checkboxInferior.addEventListener ("click", ()=>{
   else{
     cajaBottomText.classList.remove("ocultar")
   }
+})
 
-
-*/
 
 //-------------cambio de tamaño de fuente funciona------------------------------
 const fuenteSize = document.getElementById("text-size-input");
 
 fuenteSize.addEventListener("input", () =>{
     const selectTamanioFuente = fuenteSize.value;
-    textoSuperior.style.fontSize = `${selectTamanioFuente}px`;//por que este se escribe entre llaves y con signopesos
+    textoSuperior.style.fontSize = `${selectTamanioFuente}px`;
     textoInferior.style.fontSize = `${selectTamanioFuente}px`;
 });
 //--------CAMBIO TIPOGRAFIA---funciona-----
@@ -185,27 +186,28 @@ selectTipografias.addEventListener("input", () => {
     textoInferior.style.fontFamily = selectTipografias.value;
 }
 );
-//-----------alineación de texto---no funciona--------
+//-----------alineación de texto---funciona--------
 const textoIzquierda = document.getElementById("text-left-align-button"); //llamo a los botones
 const textoCentrado = document.getElementById("text-center-align-button");
 const textoDerecha = document.getElementById("text-right-align-button");
  
 
 textoIzquierda.addEventListener ("click", ()=>{
-  textoSuperior.style = `text-aling: left;`
-  textoInferior.style = `text-aling: left;`
+  textoSuperior.classList.add("alineacionIzquierda")
+  textoInferior.classList.add("alineacionIzquierda")
   
 })
 
 textoCentrado.addEventListener ("click", ()=>{
-  textoSuperior.style = `text-aling: center;`
-  textoInferior.style = `text-aling: center;`
+  textoSuperior.classList.add("alineacionCentro")
+  textoInferior.classList.add("alineacionCentro")
   
 })
 
+
 textoDerecha.addEventListener ("click", ()=>{
-  textoSuperior.style = `text-aling: right;`
-  textoInferior.style = `text-aling: right;`
+  textoSuperior.classList.add("alineacionDerecha")
+  textoInferior.classList.add("alineacionDerecha")
   
 })
 /**/
@@ -230,14 +232,30 @@ colorFondo.addEventListener("input",()=>{
     referenciaColorFondo.textContent = colorFondo.value;//actualiza referencia color de fondo en el span
 });
 
-//---------check box fondo transparente---lo saca pero no lo pone-----------
+//---------check box fondo transparente--- no funciona, probé tres formas distintas-----------
 const fondoTransparente = document.getElementById("text-no-background-checkbox");
-
+/*
 fondoTransparente.addEventListener("input",()=>{
     cajaTopText.style = `background-color: transparent;`
    cajaBottomText.style = `background-color: transparent;`
 
 });
+fondoTransparente.addEventListener("click", ()=>{
+  cajaTopText.classList.add("fondoTransparente")
+ cajaBottomText.classList.add("fondoTransparente")
+
+});
+*/
+checkboxSuperior.addEventListener ("input", ()=>{
+  if (checkboxSuperior.checked) {
+    cajaTopText.classList.add("fondoTransparente")
+    cajaBottomText.classList.add("fondoTransparente")
+  }
+  else{
+    cajaTopText.classList.remove("fondoTransparente")
+    cajaBottomText.classList.add("fondoTransparente")
+  }
+})
 
 // ------------contorno-------revisar-lo pone pero solo una vez---------------
 
@@ -276,10 +294,12 @@ interlineado.addEventListener("input", ()=>{
     textoInferior.style.leneHeight = interlineado.value;
 });
 
-//------------boton de descarga----no entiendo-------------------
-/*const botonDescarga = document.getElementById('boton-descarga');
+//------------boton de descarga----no entiendo no funciona-------------------
+/*const botonDescarga = document.querySelector(".descargar");
+const recuadroMeme = document.querySelector(".container");
 
 botonDescarga.addEventListener("click",()=>{
-    domtoimage.toBlob(document.querySelector("#div-container-imagen")).then(function (blob) {
-        window.saveAs(blob, "my-node.png");
-    }}*/
+    domtoimage.toBlob(document.querySelector(".recuadroMeme")).then(function (blob){
+        window.saveAs(blob,"memazo.png");
+  }}
+  */

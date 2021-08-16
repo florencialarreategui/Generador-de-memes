@@ -245,7 +245,7 @@ fondoTransparente.addEventListener("click", ()=>{
  cajaBottomText.classList.add("fondoTransparente")
 
 });
-*/
+
 checkboxSuperior.addEventListener ("input", ()=>{
   if (checkboxSuperior.checked) {
     cajaTopText.classList.add("fondoTransparente")
@@ -256,7 +256,7 @@ checkboxSuperior.addEventListener ("input", ()=>{
     cajaBottomText.classList.add("fondoTransparente")
   }
 })
-
+*/
 // ------------contorno-------revisar-lo pone pero solo una vez---------------
 
 const ninguno = document.getElementById("no-outline-button");

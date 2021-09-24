@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Siempre cambia el titulo de tu documento.  -->
     <title>Document</title>
     <link rel="stylesheet" href="estilo.css">
     <script src="https://kit.fontawesome.com/b6929290b2.js" crossorigin="anonymous"></script>
@@ -12,8 +13,12 @@
   
 <!-- -----------------------------------------------------header----------------------------------------------------------------->
    <header>
+     <!-- Ojo con el tabulado. 
+     No deberia haber tanto espacio. 
+     h1 y div son hijos directos de header asi que deberian estar solo dos espacios a la derecha -->
     
                     <h1 class="titulo">Generador de Memes</h1>
+                    <!-- las clases en html se separan con-guiones. reservamos el camelCase para javascript -->
                     <div class="botonesHeader">
                             <button class="botonHeader imagen"><i class="fas fa-image"></i>Imagen</button>
                             <button class="botonHeader texto"><i class="fas fa-font"></i>Texto</button>
@@ -29,6 +34,8 @@
               <p class="parrafo" id="textoSuperior">Top Text</p>
             </div>
 
+            <!-- aca necesitamos un aria label, para que el usuario que depende del lector de pantalla
+            sepa que es esto -->
             <div class="memeImagen" id="imagenMeme">
             </div>
 
@@ -39,6 +46,12 @@
        </div>
 
         <div>
+          <!-- cuando tu html se pone muy largo agrega un salto de linea
+          asi el lector no debe hacer un scroll horizontal
+          <button class="descargar" id="boton-descarga">
+            <i class="fas fa-file-download"></i>
+            <span id="botonDescargarText">Descargar meme</span>
+          </button> -->
             <button class="descargar" id="boton-descarga"><i class="fas fa-file-download"></i><span id="botonDescargarText">Descargar meme</span></button>
         </div>
     </main>
@@ -51,7 +64,7 @@
         <label for="">URL</label>
         <input type="text"  class="inputDivs" id="imgUrl">
 
-
+<!-- no uses ni mayusculas en tus etiquetas, ni la etiqueta strong -->
         <H3> <STRONG>FONDO</STRONG></H3>
 
         <div class="colorFondo">

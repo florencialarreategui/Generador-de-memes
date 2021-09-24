@@ -3,9 +3,15 @@
 const boton = document.getElementById('botonModo');
 const textInfo = document.getElementById('textInfo');
 const body = document.querySelector('body');
+// atencion a la sintaxis, dejá los espacios necesarios en las funciones, sino 
+// se ve todo apretujado y es dificil de leer
+// boton.addEventListener("click", () => {
 boton.addEventListener("click",()=>{
     body.classList.toggle("dark-mood");
     body.classList.toggle("ligth-mood");
+    // mismo aqui, deja los espacios en los if y else
+    // if (textInfo.textContent == "Modo Claro") {
+    // } else {
     if(textInfo.textContent == "Modo Claro"){
       textInfo.textContent = "Modo Oscuro";
     }else{
@@ -14,13 +20,20 @@ boton.addEventListener("click",()=>{
 })
 
 //------------------------cambio panel---funciona----------------------------------------
+// atencion al tabulado. 
+// todas estas declaraciones deben ir en la misma linea
 const botonImg = document.querySelector('.imagen')
    const botonTexto = document.querySelector('.texto')
    const aside = document.querySelector('aside')
    const panelImg = document.querySelector('.section-aside-img')
    const panelText = document.querySelector('.section-aside-text')
 
-
+// atencion al tabulado. lo que esta dentro de una funcion debe ir dos espacios mas a la derecha 
+//   botonImg.addEventListener("click", () => {
+//     aside.classList.remove("ocultar");
+//     panelText.classList.add("ocultar");
+//     panelImg.classList.remove("ocultar")
+//   });
    botonImg.addEventListener("click", ()=>{
    aside.classList.remove("ocultar");
    panelText.classList.add("ocultar");
@@ -86,7 +99,16 @@ blendMode.addEventListener("input", ()=> {
     const saturation = document.getElementById("saturacion-slider");
     const invert = document.getElementById ("negativo-slider");
   
-   
+  //  cuando son lineas muy largas, deja saltos de linea, sino es muy dificil leer 
+  //  const updateFilter = () => {
+  //   imgMeme.style.filter = `
+  //   brightness(${brightness.value}) opacity(${opacity.value}) 
+  //   contrast(${contrast.value}%) blur(${blur.value}px) 
+  //   grayscale(${grayscale.value}%) sepia(${sepia.value}%) 
+  //   hue-rotate(${hue.value}deg) saturate(${saturation.value}%) 
+  //   invert(${invert.value})
+  //   ` ;
+  // }
    const updateFilter = () => {
       imgMeme.style.filter = `brightness(${brightness.value}) opacity(${opacity.value}) contrast(${contrast.value}%) blur(${blur.value}px) grayscale(${grayscale.value}%) sepia(${sepia.value}%) hue-rotate(${hue.value}deg) saturate(${saturation.value}%) invert(${invert.value})` ;
     }
@@ -109,23 +131,35 @@ blendMode.addEventListener("input", ()=> {
 
     invert.addEventListener("change",updateFilter);
 
-/* 
-//---------reestablecer filtros-----revisado, no funciona me desabilita el resto de las funciones-----------
-const actualizarFiltros = document.getElementById("reestablecerFiltros")
-const actualizarFiltros = (click, () =>{
-  inputFilter.style.filter = brightness.value="1";
-                              opacity.value="1";
-                              contrast.value="100";
-                              blur.value="1";
-                              grayscale.value="0";
-                              sepia.value="0";
-                              hue.value="0";
-                              saturation.value="100";
-                              invert.value="0";
-                              inputFilter();
-});
 
-*/
+    // No te funciona por varios motivos
+    // 1. La orden deberia ser
+    // actualizarFiltros.addEventListener("click", () => {
+      // el resto de tu codigo
+    // })
+    // tenes que agregar el event listener 
+    // la palabra "click" debe estar entre comillas
+    // no tenes que usar la palabra const 
+    // inputFilter() no es una funcion, es un elemento del DOM
+    // Quiza hayas querido decir updateFilter()
+
+
+//---------reestablecer filtros-----revisado, no funciona me desabilita el resto de las funciones-----------
+// const actualizarFiltros = document.getElementById("reestablecerFiltros")
+// const actualizarFiltros = (click, () =>{
+//   inputFilter.style.filter = brightness.value="1";
+//                               opacity.value="1";
+//                               contrast.value="100";
+//                               blur.value="1";
+//                               grayscale.value="0";
+//                               sepia.value="0";
+//                               hue.value="0";
+//                               saturation.value="100";
+//                               invert.value="0";
+//                               inputFilter();
+// });
+
+
 //--------------Funciones del panel de texto----------------------------------------------------------------------------------------
 
 
@@ -217,6 +251,7 @@ const colorTexto = document.getElementById("text-color-input");
 const referenciaColorTexto = document.getElementById("text-color");
 
 colorTexto.addEventListener("input",()=>{
+  // Esta bien no escribirlo con llaves; el error es cuando mas abajo, en colorFondo, usas las llaves innecesariamente
     textoSuperior.style.color = colorTexto.value; //por que este no se escribe con llaves
     textoInferior.style.color = colorTexto.value;
     referenciaColorTexto.textContent = colorTexto.value; //actualiza referencia color del texto en el span
@@ -227,6 +262,22 @@ const colorFondo = document.getElementById("text-background-color-input");//inpu
 const referenciaColorFondo = document.getElementById("text-background-color"); //span con nombre del color
 
 colorFondo.addEventListener("input",()=>{
+  // Aqui estas usando la interpolacion innecesariamente. 
+  // Considera el siguiente codigo
+  // const nombre = "Flor"
+  // console.log("La alumna " +  nombre + " estudia en Ada")
+  // Puedo escribir ese console log asi, o puedo **interpolar** la variable usando backticks y llaves 
+  // console.log(`La alumna ${nombre} estudia en Ada`)
+  // Son dos maneras distintas de hacer lo mismo: agregar valores a un string
+
+  // Cuando, mas abajo, haces esto:
+  // textoSuperior.style.padding = `${espaciado.value}px`;
+  // Lo que estas haciendo con las llaves es tomar espaciado.value (por ejemplo 18) y agregandole "px"
+  // Seria equivalente a escribir 
+  // textoSuperior.style.padding = espaciado.value + "px"
+  // en cambio aca abajo, no necesitas interpolar nada 
+  // por eso podrias escribir 
+  // cajaTopText.style.backgroundColor = colorFondo.value;
     cajaTopText.style.backgroundColor = `${colorFondo.value}`;
     cajaBottomText.style.backgroundColor = `${colorFondo.value}`;
     referenciaColorFondo.textContent = colorFondo.value;//actualiza referencia color de fondo en el span
@@ -234,29 +285,45 @@ colorFondo.addEventListener("input",()=>{
 
 //---------check box fondo transparente--- no funciona, probé tres formas distintas-----------
 const fondoTransparente = document.getElementById("text-no-background-checkbox");
-/*
-fondoTransparente.addEventListener("input",()=>{
-    cajaTopText.style = `background-color: transparent;`
-   cajaBottomText.style = `background-color: transparent;`
 
-});
-fondoTransparente.addEventListener("click", ()=>{
-  cajaTopText.classList.add("fondoTransparente")
- cajaBottomText.classList.add("fondoTransparente")
+// Estas dos primeras funcionan, pero dejan el fondo transparente y no vuelve a aparecer
+// fondoTransparente.addEventListener("input",()=>{
+//     cajaTopText.style = `background-color: transparent;`
+//    cajaBottomText.style = `background-color: transparent;`
 
-});
+// });
+// fondoTransparente.addEventListener("click", ()=>{
+//   cajaTopText.classList.add("fondoTransparente")
+//  cajaBottomText.classList.add("fondoTransparente")
 
-checkboxSuperior.addEventListener ("input", ()=>{
-  if (checkboxSuperior.checked) {
-    cajaTopText.classList.add("fondoTransparente")
-    cajaBottomText.classList.add("fondoTransparente")
-  }
-  else{
-    cajaTopText.classList.remove("fondoTransparente")
-    cajaBottomText.classList.add("fondoTransparente")
-  }
-})
-*/
+// });
+
+// esto no funciona porque estas escuchando el input en checkboxSuperior, cuando lo que queres escuchar 
+// es el input en fondoTransparente
+
+// esto no funciona porque estas escuchando el input en checkboxSuperior, cuando lo que queres escuchar 
+// es el input en fondoTransparente
+// mismo error en el if
+// una vez hecho ese cambio, la funcion anda, pero la orden no se cumple por la especificidad de CSS
+// La clase no alcanza porque cajaTexto ya tiene color de fondo blanco. 
+// Escribi en CSS esto:
+// .container .fondoTransparente{
+//   background-color: transparent;
+// }
+// para darle mas especificidad, y vas a ver que va a funcionar
+
+
+// checkboxSuperior.addEventListener ("input", ()=>{
+//   if (checkboxSuperior.checked) {
+//     cajaTopText.classList.add("fondoTransparente")
+//     cajaBottomText.classList.add("fondoTransparente")
+//   }
+//   else{
+//     cajaTopText.classList.remove("fondoTransparente")
+//     cajaBottomText.classList.add("fondoTransparente")
+//   }
+// })
+
 // ------------contorno-------revisar-lo pone pero solo una vez---------------
 
 const ninguno = document.getElementById("no-outline-button");
